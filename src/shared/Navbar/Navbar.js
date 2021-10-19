@@ -1,10 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import Logo from '../Logo/Logo';
 import useAuth from '../../Hooks/useAuth';
-// import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+
 const navigation = [
   { name: 'Home', link: '/', current: false },
   { name: 'About', link: '/about', current: false },
@@ -25,7 +25,7 @@ function classNames(...classes) {
 export default function Navbar() {
   const { user, logOut } = useAuth();
   return (
-    <Disclosure as="nav" className="bg-black py-2">
+    <Disclosure as="nav" className="bg-black py-2 md:px-10 uppercase">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -50,8 +50,7 @@ export default function Navbar() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4 text-gray-400 mt-2">
                     {navigation.map((item) => (
-                      <Link
-                        onClick={changeItemCurrent}
+                      <NavLink
                         key={item.name}
                         to={item.link}
                         className={classNames(
@@ -61,7 +60,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 </div>

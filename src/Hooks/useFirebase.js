@@ -100,7 +100,12 @@ const useFirebase = () => {
                 console.log(err.message);
                 setError(err.meassage);
             })
-            .finally(()=>setIsLoading(false));
+            .finally(()=>{
+                setIsLoading(false);
+                console.log("isLoading is "+isLoading);
+            
+            });
+                
     };
 
 //user state observer
@@ -167,6 +172,7 @@ const useFirebase = () => {
     return {
         user,
         error,
+        isLoading,
         logInUser,
         handleInput,
         registerUser,

@@ -1,6 +1,33 @@
-.banner-img {
-   filter: grayscale(100);
+
+/* 
+img{
+   filter:grayscale(100);
+} */
+
+.banner-text{
+   font-size: 36px;
+   font-weight:900;
+}
+
+.split-1{
+   background-image:url('../../images/square-img-1.jpg');
+   background-position: center;
+   background-size: cover;
+   backface-visibility: visible;
+   z-index:1;
+   background-color: rgba(0, 0, 0, 0.493);
+   background-blend-mode: multiply;
+}
+.split-2{
+   background-image:url('../../images/squre-img-2.jpg');
+   background-position: center;
+   background-size: cover;
+   backface-visibility: visible;
+   z-index:1;
+   background-color: rgba(0, 0, 0, 0.699);
+   background-blend-mode: multiply;
    
-   /* mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
-   mask-size:300px; */
+}
+.banner-footer{
+  
 }

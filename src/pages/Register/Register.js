@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
-    const { signInUsingGoogle, handleInput, registerUser, logInUser, error } = useFirebase();
+    const { signInUsingGoogle, handleInput, registerUser, logInUser, error } = useAuth();
 
     const [isLogin, setIsLogin] = useState('');
 
@@ -44,9 +44,6 @@ const Register = () => {
                 <button className="px-2 bg-red-500 rounded mr-3 text-white" onClick={signInUsingGoogle}>Google</button>
                 <button className="px-2 bg-blue-600 rounded mr-3 text-white">Facebook</button>
             </div>
-
-
-
         </div>
     );
 };

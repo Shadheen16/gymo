@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# GYMO-A website for gymnasium
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live-demo-[Click here](https://vigorous-bhaskara-44baa5.netlify.app/).
+
+## About this app
+1. A simple react Gymnasium website.\
+2. A beatiful landing page.\
+3. Imlimented react-router to navigate without page reload.
+4. Used firebase authentication
+5. Used context api for managing state
 
 ## Available Scripts
 
@@ -68,5 +75,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# react-transfer
-# healthcare-related-website-Shadheen16
+# review-website-Shadheen16
