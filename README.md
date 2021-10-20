@@ -1,6 +1,6 @@
 # GYMO-A website for gymnasium
 
-Live-demo-[Click here](https://vigorous-bhaskara-44baa5.netlify.app/).
+Live-demo-[Click here]( https://my-first-firebase-app-4bce9.firebaseapp.com/).
 
 ## About this app
 1. A simple react Gymnasium website.\
