@@ -5,7 +5,7 @@ import Navbar from '../../shared/Navbar/Navbar';
 const Header = () => {
     return (
         <div className="">
-            <div className="w-full md:absolute top-12 nav">
+            <div className="w-full fixed top-0 nav">
               <Navbar></Navbar> 
             </div>   
         </div>

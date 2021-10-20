@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import Services from '../Services/Services';
 import Footer from '../Footer/Footer';
 import WhyChoseUs from '../../shared/WhyChooseUS/WhyChoseUs';
+import SectionHeader from '../../shared/SectionHeader/SectionHeader';
+import Gallery from '../../shared/Gallery/Gallery';
 
 const Home = () => {
     return (
@@ -16,7 +18,7 @@ const Home = () => {
             {/* banner section */}
 
             <div className="h-screen bg-cover bg-bottom ">
-                <div className="banner-container absolute bg-black min-h-screen">
+                <div className="banner-container bg-black min-h-screen">
                     <div className="banner-img">
                         <img className="w-screen" src={banner} alt="" />
                     </div>
@@ -61,15 +63,50 @@ const Home = () => {
             </div>
 
             {/* why chose us */}
-            <div className="p-5 bg-black">
+            <div className="p-5 bg-black mt-20 py-20">
+                <SectionHeader
+                    addClass="text-green-400"
+                    headerText='WHY CHOOSE US'
+                />
                 <WhyChoseUs></WhyChoseUs>
             </div>
 
-            
+            {/* gallery section */}
+            <div className="p-5 bg-black pb-20 pt-40">
+                <div className="pb-5">
+                    <SectionHeader
+                        headerText="OUR GALLERY"
+                        addClass="text-green-400"
+                    />
+                </div>
 
-            {/* footer section */}
-            <div>
-                <Footer></Footer>
+                <Gallery></Gallery>
+
+            </div>
+
+            {/* newsletter Section */}
+            <div className="p-5 py-20 flex">
+                <div className="mx-auto text-left max-w-2xl p-5 sm:p-10 border-2 border-green-400 rounded-tl-3xl rounded-br-3xl lg:max-w-4xl">
+                    <h1 className="text-3xl font-bold text-left">NEWSLETTER SUBSCRIBE</h1>
+                    <div className="sm:flex sm:my-5">
+                    <div className="my-5 sm:my-0">
+                        <p className="uppercase text-sm">
+                            Stop taking advice from the dark side, There is a better way to get healthy.
+                            Sign up to get email updates on new service announcement, gift ideas, special promotions, sales and more.
+                        </p>
+                    </div>
+                    <div>
+                       <label htmlFor="newsLetter " className="flex min-w-sm">
+                        <input type="text" className="px-3" placeholder="enter email" />
+                        <Button
+                            btnText="SUBSCRIBE"
+                        />
+                    </label> 
+                    </div>
+                    
+                    </div>
+                </div>
+
             </div>
 
         </div>

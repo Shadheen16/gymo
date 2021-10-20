@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import Logo from '../Logo/Logo';
@@ -10,6 +10,7 @@ const navigation = [
   { name: 'About', link: '/about', current: false },
   { name: 'Register', link: '/register', current: false },
   { name: 'Blog', link: '/blog', current: false },
+  { name: 'service detail', link: '/service/detail', current: false },
 ];
 
 
@@ -24,8 +25,23 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const { user, logOut } = useAuth();
+  const [blackNav, setBlackNav] = useState(false);
+
+  useEffect(()=>{
+    window.addEventListener("scroll", ()=>{
+      if(window.scrollY > 100){
+        setBlackNav(true);
+      }else{
+        setBlackNav(false);
+      }
+    })
+    return () => {
+      window.removeEventListener("scroll")
+    }
+  }
+  ,[])  
   return (
-    <Disclosure as="nav" className="bg-black py-2 md:px-10 uppercase">
+    <Disclosure as="nav" className={`bg-transparent py-2 md:px-10 uppercase transform transition-all duration-500 ease-in ${blackNav && "bg-black"}`}>
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

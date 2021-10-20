@@ -13,6 +13,8 @@ import AuthProvider from './provider/AuthProvider';
 import About from './pages/About/About';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import Blog from './pages/Blog/Blog';
+import ServiceDetail from './pages/Services/ServiceDetail/ServiceDetail';
+import Footer from './pages/Footer/Footer';
 
 function App() {
   return (
@@ -24,15 +26,21 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-            {/* <Route>
+            <Route>
               <Register exact path="/register"></Register>
-            </Route> */}
-            <Route exact path="/blog">
+            </Route>
+            <Route path="/blog">
               <Blog></Blog>
             </Route>
-            <PrivateRoute exact path="/about">
+            <Route path="/about">
               <About></About>
-            </PrivateRoute>
+            </Route>
+            <Route path="/service/detail">
+              <ServiceDetail/>
+            </Route>
+            <Route path="service/:serviceId">
+              <ServiceDetail></ServiceDetail>
+            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>
@@ -40,6 +48,7 @@ function App() {
               <NotFound path="*"></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
