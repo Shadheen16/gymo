@@ -14,10 +14,10 @@ const useFirebase = () => {
 
     const handleInput = (e) => {
         e.preventDefault();
-        if (e.target.name === "name"){
+        if (e.target.name === "name") {
             console.log(e.target.value);
             setName(e.target.value);
-        }else if (e.target.name === "email") {
+        } else if (e.target.name === "email") {
             console.log(e.target.value);
             setEmail(e.target.value);
         } else if (e.target.name === "password") {
@@ -29,7 +29,7 @@ const useFirebase = () => {
     const logInUser = (e) => {
         e.preventDefault();
         setIsLoading(true);
-        console.log("starting login with-"+ email, password);
+        console.log("starting login with-" + email, password);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
@@ -43,7 +43,9 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 setError(errorMessage);
             })
-            .finally(()=>setIsLoading(false));
+            .finally(() => {
+                setIsLoading(false)
+            });
 
     };
 
@@ -53,11 +55,11 @@ const useFirebase = () => {
         console.log(email, password);
 
         // email validation
-            validateEmail();
+        validateEmail();
 
         // password validation
-            validatePassword();
-        
+        validatePassword();
+
         createUserWithEmailAndPassword(auth, email, password)
             .then(res => {
                 const user = res.user;
@@ -67,21 +69,22 @@ const useFirebase = () => {
             }
             )
             .catch(error => setError(error.meassage))
-            .finally(()=>setIsLoading(false));
+            .finally(() => setIsLoading(false));
     }
 
     const updateName = () => {
         console.log(name);
-        console.log(auth.currentUser+"from updateNmame");
+        console.log(auth.currentUser + "from updateNmame");
         updateProfile(auth.currentUser, {
-            displayName:name})
-          .then((res) => {
-            console.log("profile updated successfully")
-            // ...
-          }).catch((error) => {
-            // An error occurred
-            // ...
-          });
+            displayName: name
+        })
+            .then((res) => {
+                console.log("profile updated successfully")
+                // ...
+            }).catch((error) => {
+                // An error occurred
+                // ...
+            });
     }
 
 
@@ -91,34 +94,33 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const signInUsingGoogle = () => {
         setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then(res => {
-                console.log(res.user);
-                setUser(res.user);
-            })
+        return signInWithPopup(auth, googleProvider)
             .catch(err => {
                 console.log(err.message);
                 setError(err.meassage);
             })
-            .finally(()=>{
+            .finally(() => {
                 setIsLoading(false);
-                console.log("isLoading is "+isLoading);
-            
+                console.log("isLoading is " + isLoading);
+
             });
-                
+
     };
 
-//user state observer
+    //user state observer
     useEffect(() => {
-        onAuthStateChanged(auth, user => {
+
+        const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
                 console.log('inside stateChange', user);
                 setUser(user);
-            }else{
+            } else {
                 setUser({});
-                setIsLoading(false);
             }
-        })
+            setIsLoading(false);
+        });
+        return () => unsubscribed;
+
     }, []);
 
     const logOut = () => {
@@ -131,9 +133,9 @@ const useFirebase = () => {
                 setError(error);
                 console.log(error.message)
             })
-            .finally(()=>setIsLoading(false))
+            .finally(() => setIsLoading(false))
     };
-    
+
     // EMAIL VALIDATION FUNCTION
     const validateEmail = () => {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -166,7 +168,7 @@ const useFirebase = () => {
             setError("Your password must contain at least one digit.");
             return;
         }
-    } 
+    }
 
 
     return {
@@ -177,7 +179,10 @@ const useFirebase = () => {
         handleInput,
         registerUser,
         signInUsingGoogle,
-        logOut
+        logOut,
+        setUser,
+        setError,
+        setIsLoading
     }
 
 }

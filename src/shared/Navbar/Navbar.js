@@ -7,16 +7,15 @@ import useAuth from '../../Hooks/useAuth';
 
 const navigation = [
   { name: 'Home', link: '/', current: false },
-  { name: 'About', link: '/about', current: false },
-  { name: 'Register', link: '/register', current: false },
   { name: 'Blog', link: '/blog', current: false },
-  { name: 'service detail', link: '/service/detail', current: false },
+  { name: 'Register', link: '/register', current: false },
+  { name: 'About', link: '/about', current: false },
 ];
 
 
-const changeItemCurrent = () => {
+// const changeItemCurrent = () => {
 
-}
+// }
 
 
 function classNames(...classes) {
@@ -88,8 +87,7 @@ export default function Navbar() {
                   className="bg-green-400 lg:hidden p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
                   <span className="sr-only">View notifications</span>
-                  {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
-
+                  
                 </button>
                 }
 
@@ -104,7 +102,7 @@ export default function Navbar() {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            src={user.photoURL}
                             alt=""
                           />
                         </Menu.Button>

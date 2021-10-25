@@ -1,11 +1,12 @@
 import React from 'react';
 import Logo from '../../shared/Logo/Logo';
+import OpeningHours from '../../shared/OpeningHours/OpeningHours';
 import "./Footer.css"
 
 const Footer = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 p-5 footer">
-            <div className=" footer-box">
+            <div className="mx-5 footer-box">
                 <Logo className="m-3"></Logo>
                 <small>
                     Box 35300 <br />
@@ -16,27 +17,20 @@ const Footer = () => {
                 </small>
 
             </div>
-            <div className=" footer-box">
-                <h5>Openning Hours</h5>
-                <small>
-                    MON- 7.00am to 10 pm  <br />
-                    TUE- 7.00am to 10 pm <br />
-                    WED- 7.00am to 10 pm<br />
-                    THU- 7.00am to 10 pm <br />
-                    FRY- 3.00pm to 10 pm <br />
-                    SAT- 7.00am to 10 pm <br />
-                    SUN- 3.00pm to 10 pm
-                </small>
+            <div className="text-xs sm:mx-5 footer-box">
+                <OpeningHours></OpeningHours>
             </div>
-            <div className="footer-box">
-                <h5>OTHERS</h5>
-                <small>
-                    Canvas <br />
-                    Catalyst <br />
-                    Library <br />
-                    Time Schedule <br />
-                    Apply Classes <br />
-                </small>
+            <div className="mt-2 mx-5 footer-box uppercase text-xs">
+                <h5 className="font-bold">OTHERS</h5>
+                <div className="">
+                    <p className="py-3 border-b mt-5"> Canvas </p>
+                    <p className="py-3 border-b"> Catalyst </p>
+                    <p className="py-3 border-b"> Library </p>
+                    <p className="py-3 border-b"> Time Schedule </p>
+                    <p className="py-3 border-b"> Apply Classes </p>
+                </div>
+
+
             </div>
         </div>
     );
